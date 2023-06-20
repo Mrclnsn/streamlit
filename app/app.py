@@ -9,10 +9,10 @@ st.markdown("Inspired from [fact-checker](https://github.com/jagilley/fact-check
 
 
 if API:
-llm = OpenAI(temperature=0.7, openai_api_key=API)
+    llm = OpenAI(temperature=0.7, openai_api_key=API)
 else:
     
-st.warning("Enter your OPENAI API-KEY. Get your OpenAI API key from [here](https://platform.openai.com/account/api-keys).\n")
+    st.warning("Enter your OPENAI API-KEY. Get your OpenAI API key from [here](https://platform.openai.com/account/api-keys).\n")
 
 
 user_question = st.text_input(
@@ -22,9 +22,9 @@ placeholder = "Cyanobacteria can perform photosynthetsis , are they considered a
 
 if st.button("Tell me about it", type="primary"):
     
-template = """{question}\n\n"""
-prompt_template = PromptTemplate(input_variables=["question"], template=template)
-question_chain = LLMChain(llm=llm, prompt=prompt_template)
+    template = """{question}\n\n"""
+    prompt_template = PromptTemplate(input_variables=["question"], template=template)
+    question_chain = LLMChain(llm=llm, prompt=prompt_template)
     
 template = """Here is a statement:
 {statement}
